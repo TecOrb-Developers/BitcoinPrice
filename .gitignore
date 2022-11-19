@@ -1,7 +1,7 @@
 ## User settings
 *.xcuserdata
 Environment.swift
-LearningDemo/LearningDemo.xcodeproj/project.xcworkspace/xcuserdata/nakulsharma.xcuserdatad/UserInterfaceState.xcuserstate
+BitcoinPrice/BitcoinPrice.xcodeproj/project.xcworkspace/xcuserdata/nakulsharma.xcuserdatad/UserInterfaceState.xcuserstate
 ## compatibility with Xcode 8 and earlier (ignoring not required starting Xcode 9)
 *.xcscmblueprint
 *.xccheckout
