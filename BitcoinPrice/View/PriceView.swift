@@ -31,7 +31,7 @@ struct PriceView: View {
                 Text("Price")
                     .font(Font.custom("Mabry Pro", size: 18))
                     .multilineTextAlignment(.center).padding(5)
-                let priceStr = isLoading ? "Loading..." : getFormatterPrice(currentPrice)
+                let priceStr = isLoading ? "loading..." : getFormatterPrice(currentPrice)
                 Text(priceStr)
                     .font(Font.custom("Mabry Pro Bold", size: 28))
                     .multilineTextAlignment(.center)
@@ -45,7 +45,9 @@ struct PriceView: View {
             }){
                 HStack{
                     Spacer()
-                    Text(isLoading ? "Loading.." : "Refresh Price")
+//                    Text(isLoading ? "Loading.." : "Refresh Price")
+                    Text("Refresh Price")
+                        .animation(.linear(duration: 0.1))
                     Spacer()
                 }
             }
@@ -53,10 +55,10 @@ struct PriceView: View {
             .disabled(isLoading)
             .padding()
             .font(Font.custom("Mabry Pro Bold", size: 16))
-            //.frame(height: 50)
             .foregroundColor(.white)
             .background(Color(red: 0.73, green: 0.53, blue: 1.0, opacity: isLoading ? 0.5 : 1.0))
             .cornerRadius(33)
+            .shadow(color: .black.opacity(0.25), radius: 0, x: 1, y: 1)
             
             Spacer()
         }

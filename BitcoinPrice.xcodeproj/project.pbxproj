@@ -105,8 +105,8 @@
 			children = (
 				EAAF6F1D2928C988001E3583 /* Info.plist */,
 				EAAF6EEE2928C53D001E3583 /* BitcoinPriceApp.swift */,
-				EAAF6F182928C95B001E3583 /* Fonts */,
-				EAAF6EF02928C53D001E3583 /* PriceView.swift */,
+				EAAF6F182928C95B001E3583 /* Resources */,
+				EAC037BD2928F870006175AB /* View */,
 				EAC037B92928ECBF006175AB /* API */,
 				EAC037B52928E877006175AB /* Model */,
 				EAAF6EF22928C53F001E3583 /* Assets.xcassets */,
@@ -140,13 +140,12 @@
 			path = BitcoinPriceUITests;
 			sourceTree = "<group>";
 		};
-		EAAF6F182928C95B001E3583 /* Fonts */ = {
+		EAAF6F182928C95B001E3583 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
-				EAAF6F1A2928C96E001E3583 /* Mabry Pro Bold.otf */,
-				EAAF6F192928C96E001E3583 /* Mabry Pro.otf */,
+				EAC037BC2928F831006175AB /* Fonts */,
 			);
-			path = Fonts;
+			path = Resources;
 			sourceTree = "<group>";
 		};
 		EAC037B52928E877006175AB /* Model */ = {
@@ -163,6 +162,23 @@
 				EAC037BA2928ECDA006175AB /* API.swift */,
 			);
 			path = API;
+			sourceTree = "<group>";
+		};
+		EAC037BC2928F831006175AB /* Fonts */ = {
+			isa = PBXGroup;
+			children = (
+				EAAF6F1A2928C96E001E3583 /* Mabry Pro Bold.otf */,
+				EAAF6F192928C96E001E3583 /* Mabry Pro.otf */,
+			);
+			path = Fonts;
+			sourceTree = "<group>";
+		};
+		EAC037BD2928F870006175AB /* View */ = {
+			isa = PBXGroup;
+			children = (
+				EAAF6EF02928C53D001E3583 /* PriceView.swift */,
+			);
+			path = View;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
