@@ -66,10 +66,8 @@ struct PriceView: View {
     }
     
     func loadBitcoinPrices(){
-        debugPrint("Loading Started")
         Api.loadData { resPrices in
             isLoading = false
-            debugPrint("Loading completed")
             guard let resPrices = resPrices else{return}
             guard let rateFloat = resPrices.rateFloat else{return}
             DispatchQueue.main.async{
