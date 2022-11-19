@@ -16,6 +16,8 @@
 		EAAF6F0C2928C53F001E3583 /* BitcoinPriceUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAAF6F0B2928C53F001E3583 /* BitcoinPriceUITestsLaunchTests.swift */; };
 		EAAF6F1B2928C96E001E3583 /* Mabry Pro.otf in Resources */ = {isa = PBXBuildFile; fileRef = EAAF6F192928C96E001E3583 /* Mabry Pro.otf */; };
 		EAAF6F1C2928C96E001E3583 /* Mabry Pro Bold.otf in Resources */ = {isa = PBXBuildFile; fileRef = EAAF6F1A2928C96E001E3583 /* Mabry Pro Bold.otf */; };
+		EAC037B72928E899006175AB /* BitcoinPrices.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAC037B62928E899006175AB /* BitcoinPrices.swift */; };
+		EAC037BB2928ECDA006175AB /* API.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAC037BA2928ECDA006175AB /* API.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -49,6 +51,8 @@
 		EAAF6F192928C96E001E3583 /* Mabry Pro.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Mabry Pro.otf"; sourceTree = "<group>"; };
 		EAAF6F1A2928C96E001E3583 /* Mabry Pro Bold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Mabry Pro Bold.otf"; sourceTree = "<group>"; };
 		EAAF6F1D2928C988001E3583 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+		EAC037B62928E899006175AB /* BitcoinPrices.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BitcoinPrices.swift; sourceTree = "<group>"; };
+		EAC037BA2928ECDA006175AB /* API.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = API.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -103,6 +107,8 @@
 				EAAF6EEE2928C53D001E3583 /* BitcoinPriceApp.swift */,
 				EAAF6F182928C95B001E3583 /* Fonts */,
 				EAAF6EF02928C53D001E3583 /* PriceView.swift */,
+				EAC037B92928ECBF006175AB /* API */,
+				EAC037B52928E877006175AB /* Model */,
 				EAAF6EF22928C53F001E3583 /* Assets.xcassets */,
 				EAAF6EF42928C53F001E3583 /* Preview Content */,
 			);
@@ -141,6 +147,22 @@
 				EAAF6F192928C96E001E3583 /* Mabry Pro.otf */,
 			);
 			path = Fonts;
+			sourceTree = "<group>";
+		};
+		EAC037B52928E877006175AB /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				EAC037B62928E899006175AB /* BitcoinPrices.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		EAC037B92928ECBF006175AB /* API */ = {
+			isa = PBXGroup;
+			children = (
+				EAC037BA2928ECDA006175AB /* API.swift */,
+			);
+			path = API;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -275,7 +297,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EAC037B72928E899006175AB /* BitcoinPrices.swift in Sources */,
 				EAAF6EF12928C53D001E3583 /* PriceView.swift in Sources */,
+				EAC037BB2928ECDA006175AB /* API.swift in Sources */,
 				EAAF6EEF2928C53D001E3583 /* BitcoinPriceApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

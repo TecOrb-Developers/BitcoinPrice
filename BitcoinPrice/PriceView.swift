@@ -8,9 +8,9 @@
 import SwiftUI
 
 struct PriceView: View {
-    @State var currentPrice: Double = 16394
+    @State var currentPrice: Double!
     
-    @State var isLoading: Bool = false
+    @State var isLoading: Bool = true
     
     
     var body: some View {
@@ -35,15 +35,13 @@ struct PriceView: View {
                 Text(priceStr)
                     .font(Font.custom("Mabry Pro Bold", size: 28))
                     .multilineTextAlignment(.center)
+                    .onAppear(perform: loadBitcoinPrices)
             }.padding(30)
             Spacer()
             //Refresh and Loading Toggle Button
             Button(action: {
-                isLoading = !isLoading
-                DispatchQueue.main.asyncAfter(deadline: .now()+1, execute: {
-                    isLoading = !isLoading
-                    currentPrice += 10.25
-                })
+                isLoading = true
+                self.loadBitcoinPrices()
             }){
                 HStack{
                     Spacer()
@@ -65,8 +63,24 @@ struct PriceView: View {
         .padding(30)
     }
     
+    func loadBitcoinPrices(){
+        debugPrint("Loading Started")
+        Api.loadData { resPrices in
+            isLoading = false
+            debugPrint("Loading completed")
+            guard let resPrices = resPrices else{return}
+            guard let rateFloat = resPrices.rateFloat else{return}
+            DispatchQueue.main.async{
+                self.currentPrice = rateFloat
+            }
+        }
+    }
+    
     //Price Formatting
-    func getFormatterPrice(_ value: Double) -> String{
+    func getFormatterPrice(_ value: Double?) -> String{
+        guard let value = value else{
+            return "Not found!"
+        }
         let formatter = NumberFormatter()
         formatter.numberStyle = .currencyAccounting
         formatter.maximumFractionDigits = 2
