@@ -9,14 +9,12 @@ import SwiftUI
 
 struct PriceView: View {
     @State var currentPrice: Double!
-    
     @State var isLoading: Bool = true
-    
     
     var body: some View {
         VStack{
             Spacer()
-            //header image and text
+            //MARK: header image and text
             VStack {
                 Image("header")
                     .imageScale(.large)
@@ -26,7 +24,8 @@ struct PriceView: View {
                     .multilineTextAlignment(.center)
             }.padding(30)
             Spacer()
-            //Price heading and the current price Label
+            
+            //MARK: Price heading and the current price Label
             VStack {
                 Text("Price")
                     .font(Font.custom("Mabry Pro", size: 18))
@@ -36,13 +35,15 @@ struct PriceView: View {
                     .font(Font.custom("Mabry Pro Bold", size: 28))
                     .multilineTextAlignment(.center)
                     .onAppear(perform: loadBitcoinPrices)
+                
             }.padding(30)
             Spacer()
-            //Refresh and Loading Toggle Button
+            //MARK: Refresh and Loading Toggle Button
             Button(action: {
                 isLoading = true
                 self.loadBitcoinPrices()
             }){
+                //trick to increase the tappable area of the Refresh button
                 HStack{
                     Spacer()
 //                    Text(isLoading ? "Loading.." : "Refresh Price")
@@ -51,14 +52,7 @@ struct PriceView: View {
                     Spacer()
                 }
             }
-            .frame(minWidth: 0, maxWidth: .infinity)
-            .disabled(isLoading)
-            .padding()
-            .font(Font.custom("Mabry Pro Bold", size: 16))
-            .foregroundColor(.white)
-            .background(Color(red: 0.73, green: 0.53, blue: 1.0, opacity: isLoading ? 0.5 : 1.0))
-            .cornerRadius(33)
-            .shadow(color: .black.opacity(0.25), radius: 0, x: 1, y: 1)
+            .refreshButtonModifiers(isLoading: isLoading)
             
             Spacer()
         }
@@ -66,12 +60,15 @@ struct PriceView: View {
     }
     
     func loadBitcoinPrices(){
+        debugPrint("Loading started")
         Api.loadData { resPrices in
-            isLoading = false
+            debugPrint("Loading finished")
             guard let resPrices = resPrices else{return}
             guard let rateFloat = resPrices.rateFloat else{return}
+            
             DispatchQueue.main.async{
                 self.currentPrice = rateFloat
+                isLoading = false
             }
         }
     }
@@ -97,3 +94,19 @@ struct ContentView_Previews: PreviewProvider {
         PriceView()
     }
 }
+
+extension Button{
+    //MARK: Customizing Refresh Button
+    func refreshButtonModifiers(isLoading: Bool) -> some View{
+        self
+            .frame(minWidth: 0, maxWidth: .infinity)
+            .disabled(isLoading)
+            .padding()
+            .font(Font.custom("Mabry Pro Bold", size: 16))
+            .foregroundColor(.white)
+            .background(Color(red: 0.73, green: 0.53, blue: 1.0, opacity: isLoading ? 0.5 : 1.0))
+            .cornerRadius(33)
+            .shadow(color: .black.opacity(0.25), radius: 0, x: 1, y: 1)
+    }
+}
+
